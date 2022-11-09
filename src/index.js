@@ -1,10 +1,11 @@
 console.log("runing webpcket");
+import './style.css';
 import logoRed from "./images/logoRed.png";
 import gitLogo from "./images/github.png";
 import { inicioFunctionTab } from "./inicio";
 import { menuFunctionTab } from "./menu";
 import { contactoFunctionTab } from "./contacto";
-
+import exampleImageUrl from "./images/fondoBanner.png";
 
 
 const content = document.getElementById("content");
@@ -57,6 +58,7 @@ const create = (() => {
 
 return {Header,Footer}
 })()
+
 
 
 

@@ -9,10 +9,11 @@ const menuFunctionTab = (() =>{
     const create = ()=>{
         erase();
         const tabContent = document.createElement("div");
-        tabContent.setAttribute("id","tabContent");
+        tabContent.setAttribute("id","menuContent");
 
         const bannerPromo = new Image();
         bannerPromo.src = bannerPromocion;
+        bannerPromo.setAttribute("class","bannerPromo")
         tabContent.appendChild(bannerPromo);
 
         let dish = class {
@@ -40,7 +41,16 @@ const menuFunctionTab = (() =>{
                 menuPicture.src = dish.image;
                 const cardText = document.createElement("div");
                 cardText.setAttribute("class","cardText");
-                cardText.textContent =  dish.title + "\r\n" + dish.price + "\r\n" + dish.description;
+                const cardTitle = document.createElement("div");
+                cardTitle.setAttribute("class","cardTitle");
+                cardTitle.textContent = dish.title;
+                const cardPrice = document.createElement("div");
+                cardPrice.setAttribute("class","cardPrice");
+                cardPrice.textContent = dish.price;
+                const cardDescription = document.createElement("div");
+                cardDescription.setAttribute("class","cardDescription");
+                cardDescription.textContent = dish.description;
+                cardText.append(cardTitle , cardPrice , cardDescription);
                 card.appendChild(menuPicture);
                 card.appendChild(cardText);
                 tabContent.appendChild(card);
@@ -51,8 +61,8 @@ const menuFunctionTab = (() =>{
         content.appendChild(tabContent);
     }
     const erase = () => {
-        const menuContent = document.getElementById("tabContent");
-        content.removeChild(menuContent);
+        const toBeRemoved = document.getElementById("content").firstChild;
+        content.removeChild(toBeRemoved);
     }
 
     

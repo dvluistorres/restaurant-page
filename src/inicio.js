@@ -5,7 +5,7 @@ const inicioFunctionTab = (() =>{
     const create = ()=>{
         erase();
         const inicioContent = document.createElement("div");
-        inicioContent.setAttribute('id', 'tabContent');
+        inicioContent.setAttribute('id', 'inicioContent');
         const pollito = new Image();
         pollito.src = imagenPollo;
 
@@ -18,9 +18,9 @@ const inicioFunctionTab = (() =>{
         };
         
     const erase = () => {
-        if (!!document.getElementById("tabContent")){
-        const inicioContent = document.getElementById("tabContent");
-        content.removeChild(inicioContent);
+        const toBeRemoved = document.getElementById("content").firstChild;
+        if (!!toBeRemoved){
+        content.removeChild(toBeRemoved);
         };
     }
 

@@ -1,14 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const cssRules = {test: /\.css$/,use: [{ loader: 'style-loader' },{loader: 'css-loader',options: {modules: true,},},],};
+const cssRules = {test: /\.css$/i, use: ['style-loader', 'css-loader'],};
 const imgRules = {test: /\.(png|svg|jpg|jpeg|gif)$/i,type: 'asset/resource',};
+const fontsRules = {test: /\.(woff|woff2|eot|ttf|otf)$/i, type: 'asset/resource',};
 
 module.exports = {
   mode: 'development',
   module: {
     rules: [
       cssRules,
-      imgRules
+      imgRules,
+      fontsRules
     ],
   },
   entry: {

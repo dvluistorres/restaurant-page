@@ -1,20 +1,28 @@
 import imgCombo8Presas from "./images/ochopresas.png";
 import imgWhatsapp from "./images/whatsapp-icon.png";
 import { menuFunctionTab } from "./menu";
-import chiFace from "./images/chickenFace.png"
+import chiFace from "./images/chickenFace.png";
+import restaurantBan from "./images/restaurantBanner.png";
+import phoneImage from "./images/phone-svgrepo-com.svg";
+import clockImage from "./images/clock-svgrepo-com.svg";
+import calendarImage from "./images/calendar-svgrepo-com.svg";
 
 const contactoFunctionTab = (() =>{
     const create = ()=>{
         erase();
         const contactoContent = document.createElement("div");
-        contactoContent.setAttribute('id', 'tabContent');
+        contactoContent.setAttribute('id', 'contactoContent');
         
         const pideWhatsapp = document.createElement("div");
+        pideWhatsapp.setAttribute("class","pideWhatsapp");
         const combo8Presas = new Image();
         combo8Presas.src = imgCombo8Presas;
         const domicilioTitulo = document.createElement("h3");
         const whatsappPng = new Image();
         whatsappPng.src = imgWhatsapp;
+        domicilioTitulo.addEventListener("click", ()=>{
+            window.open("https://api.whatsapp.com/send?phone=573004100111&text=Hola!%20quiero%20un%20rico%20pollo", '_blank');
+         });
         const bannerRight = document.createElement("div");
         domicilioTitulo.innerHTML="DOMICILIOS:\r\n";
         domicilioTitulo.appendChild(whatsappPng);
@@ -30,6 +38,11 @@ const contactoFunctionTab = (() =>{
         pideWhatsapp.appendChild(combo8Presas);
         pideWhatsapp.appendChild(bannerRight);
         contactoContent.appendChild(pideWhatsapp);
+
+        const restaurantBanner = new Image();
+        restaurantBanner.src = restaurantBan
+        restaurantBanner.setAttribute("class","restaurantBanner");
+        contactoContent.appendChild(restaurantBanner);
 
         const restaurants = [
             [
@@ -567,52 +580,59 @@ const contactoFunctionTab = (() =>{
         ]
         
         const restaurantsDiv = document.createElement("div");
-        const restauransList = document.createElement("div");
+        restaurantsDiv.setAttribute("class","restaurantsDiv");
+        const restaurantsList = document.createElement("div");
+        restaurantsList.setAttribute("class","restaurantsList");
         const restaurantMap = document.createElement("div");
-        const chickenFace = new Image();
-        chickenFace.src = chiFace;
-        // const calendar = new Image();
-        // calendar.src = chiFace;
-        // const phone = new Image();
-        // phone.src = chiFace;
-        // const clock = new Image();
-        // clock.src = chiFace;
         for (const restaurant of restaurants){
             const restaurantCard = document.createElement("div");
             const restaurantInfo = document.createElement("div");
             const restaurantName = document.createElement("div");
             const restaurantAdress = document.createElement("div");
             const restaurantPhone = document.createElement("div");
+            const restaurantPhoneText = document.createElement("p");
+            const phoneImg = new Image();
+            phoneImg.src = phoneImage;
+            restaurantPhone.appendChild(phoneImg);
+            restaurantPhone.appendChild(restaurantPhoneText);
             const restaurantHours = document.createElement("div");
+            const restaurantHoursText = document.createElement("p");
+            const clockImg = new Image();
+            clockImg.src = clockImage;
+            restaurantHours.appendChild(clockImg);
+            restaurantHours.appendChild(restaurantHoursText);
             const restaurantDays = document.createElement("div");
-            restaurantName.textContent = restaurant[0];
-            restaurantAdress.textContent = restaurant[1];
-            restaurantPhone.textContent = restaurant[2];
-            restaurantHours.textContent = restaurant[3];
-            restaurantDays.textContent = restaurant[4];
-            restaurantInfo.append(restaurantName);
-            restaurantInfo.append(restaurantAdress);
-            restaurantInfo.append(restaurantPhone);
-            restaurantInfo.append(restaurantHours);
-            restaurantInfo.append(restaurantDays);
-            // restaurantCard.appendChild(chickenFace);
+            const restaurantDaysText = document.createElement("p");
+            const calendarImg = new Image();
+            calendarImg.src = calendarImage;
+            restaurantDays.appendChild(calendarImg);
+            restaurantDays.appendChild(restaurantDaysText);
+            restaurantName.textContent += restaurant[0];
+            restaurantAdress.textContent += restaurant[1];
+            restaurantPhoneText.textContent += restaurant[2];
+            restaurantHoursText.textContent += restaurant[3];
+            restaurantDaysText.textContent += restaurant[4];
+            restaurantInfo.append(restaurantName , restaurantAdress , restaurantPhone , restaurantHours , restaurantDays);
+            const chickenFace = new Image();
+            chickenFace.src = chiFace;
+            restaurantCard.appendChild(chickenFace);
             restaurantCard.appendChild(restaurantInfo);
-            restauransList.appendChild(restaurantCard);
+            restaurantCard.setAttribute("class","restaurantCard");
+            restaurantsList.appendChild(restaurantCard);
         }
-        restaurantMap.appendChild(chickenFace);
-        restaurantsDiv.appendChild(restauransList);
-        restaurantsDiv.appendChild(restauransList);
+        const map2 = document.createElement("iframe");
+        map2.setAttribute("src","https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126914.3295750815!2d-75.64573068313165!3d6.254139314010602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428562b9e8f0f%3A0xae20d955e506c981!2sKokoriko%20Oriental!5e0!3m2!1ses!2sco!4v1668001835209!5m2!1ses!2sco");
+        restaurantMap.appendChild(map2);
+        restaurantsDiv.appendChild(restaurantsList);
+        restaurantsDiv.appendChild(restaurantMap);
         contactoContent.appendChild(restaurantsDiv);
-
-
-
 
         content.appendChild(contactoContent);
         };
         
     const erase = () => {
-        const contactoContent = document.getElementById("tabContent");
-        content.removeChild(contactoContent);
+        const toBeRemoved = document.getElementById("content").firstChild;
+        content.removeChild(toBeRemoved);
     }
 
     
@@ -620,18 +640,3 @@ const contactoFunctionTab = (() =>{
 })()
 
 export {contactoFunctionTab}
-
-
-const rest = document.getElementsByClassName("sl-item");
-const ordRest =[]
-let i = 0;
-while (!!rest[i] === true){
-    const res =[]
-    res[0] = rest[i].getElementsByClassName("p-title")[0].textContent;
-    res[1] = rest[i].getElementsByClassName("p-area")[0].textContent;
-    res[2] = rest[i].getElementsByClassName("p-area")[1].textContent;
-    res[3] = rest[i].getElementsByClassName("p-time")[0].textContent;
-    res[4] = rest[i].getElementsByClassName("p-time")[1].textContent;
-    ordRest.push(res);
-    i++;
-};

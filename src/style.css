@@ -1,0 +1,346 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+@font-face {
+    font-family: 'NexaRustSlab';
+    src: url('./fonts/NexaRustSlab.otf') format('opentype');
+  }
+
+:root{
+    --kokored : #e22628;
+    --kokoback : #aa2224;
+    }
+
+body{
+    background-color: var(--kokoback);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url(./images/chickenFace.png);
+    background-repeat: repeat;
+    background-size: 90px;
+    transform: rotate(45°);
+}
+
+#header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px auto 32px auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
+    max-width: max(75%,780px);
+    width: 100%;
+    align-items: center;
+    height: 60px;
+    border-radius: 20px;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-image: url(./images/probaleBackground.png);
+    border: black solid 2px;
+    }
+
+#header img{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+#header #tabs {
+    display:flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+#tabs .tab{
+    cursor: pointer;
+    font-family: NexaRustSlab , 'Courier New', Courier, monospace;
+    color: var(--kokored);
+    font-size: larger;
+    margin: auto 16px auto 16px;
+}
+
+#tabs .tab::after{
+    display: block;
+    content: "";
+    border-bottom: solid 1px var(--kokored);
+    padding-bottom: 1%;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+#tabs .tab:hover::after{
+    transform: scaleX(1);
+}
+
+#inicioContent {
+    display:block;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: black solid 2px;
+    max-width: max(75%,780px);
+    width: 100%;
+    align-items: center;
+    border-radius: 20px;
+    margin: 0px auto 0px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--kokored);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 60px 0px 60px 0px;
+    margin-bottom: 30px;
+    background-image: url(./images/probaleBackground.png);
+    background-position: 15px;
+}
+
+#inicioContent::first-line {
+    font-size: 30px;
+}
+
+#inicioContent img{
+    width: 60%;
+    margin-top: -5%;
+}
+
+#footer{
+    height: 45px;
+    background: #eee;
+    color: rgb(255, 255, 255);
+    flex: initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    }
+
+#footer img{
+    height: 30px;
+    cursor: pointer;
+}
+
+#menuContent {
+    display:flex;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: black solid 2px;
+    max-width: max(75%,780px);
+    width: 100%;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0px auto 0px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--kokored);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 60px 0px 60px 0px;
+    margin-bottom: 30px;
+    gap: 20px;
+    background-image: url(./images/probaleBackground.png);
+}
+
+#menuContent .bannerPromo{
+    width: 60%;
+}
+
+#menuContent .card{
+    display: flex;
+    border: 0.1px solid rgb(68, 68, 68);
+    border-radius: 10px;
+    background-color: white;
+    width: 350px;
+    background-color: var(--kokoback);
+    height: 150px;
+    text-align: left;
+}
+
+.card img{
+    width: 120px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.card .cardText{
+    white-space: pre-line;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    margin: auto 0px auto 0px;
+    padding-left: 10px;
+}
+
+.cardText .cardTitle{
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.cardText .cardPrice{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 5px 0px 5px 0px;
+}
+
+#contactoContent {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: black solid 2px;
+    max-width: max(75%,780px);
+    width: 100%;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0px auto 0px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--kokored);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 60px 0px 60px 0px;
+    margin-bottom: 30px;
+    gap: 20px;
+    background-image: url(./images/probaleBackground.png);
+}
+
+#contactoContent .pideWhatsapp{
+    display: flex;
+    height: 320px;
+
+}
+
+.pideWhatsapp{
+    width: 100%;
+}
+
+.pideWhatsapp>img{
+    width: 50%;
+    height: 320px;
+}
+
+.pideWhatsapp>div>h3>img{
+    width: 25px;
+    height: fit-content;
+    cursor: pointer;
+    
+}
+
+.pideWhatsapp>div{
+    display: flex;
+    flex-direction: column;
+    padding: auto 10px auto 10px;
+    white-space: pre-line;
+    background-color: var(--kokored);
+    color: white;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 30px;
+}
+
+.pideWhatsapp p{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'NexaRustSlab',sans-serif;
+}
+
+.pideWhatsapp button {
+    background-color: #f3f4f6;
+    border-radius: 100px;
+    color: #333238;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'NexaRustSlab',sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 150px;
+    flex: initial;
+    font-weight: bolder;
+  }
+
+  .pideWhatsapp button:hover{
+    box-shadow: #333238;
+    transform: scale(1.15);
+  }
+
+  #contactoContent .restaurantBanner{
+    width: 100%;
+  }
+
+#contactoContent .restaurantsDiv{
+    display: flex;
+}
+
+#contactoContent .restaurantsList{
+    height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 352px;
+}
+
+#contactoContent .restaurantsList::-webkit-scrollbar{
+    width: 0px;
+}
+
+.restaurantsDiv>div>iframe{
+    width:100%;
+    height:90vh;
+    border:0;
+}
+
+.restaurantsDiv>div{
+    width: calc(100% - 352px)
+}
+
+#contactoContent .restaurantCard{
+    display: flex;
+    border: 0.1px solid rgb(68, 68, 68);
+    border-radius: 10px;
+    background-color: white;
+    width: 350px;
+    height: 180px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.restaurantCard>div>div>img{
+    height: 16px;
+}
+
+.restaurantCard>div>div{
+    display: flex;
+
+}
